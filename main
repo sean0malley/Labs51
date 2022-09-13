@@ -1,0 +1,25 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+double ln(int x, int a) {
+    if (x - a == 0) {
+        throw "Zero in denominator";
+    }
+    if ((x + a < 0 && x - a>0) || (x + a > 0 && x - a < 0)) {
+        throw "Negative value under the logarithm";
+    }
+    return log((x + a) / (x - a));
+}
+int main()
+{
+    double x, a;
+    cout << "Enter the x and a" << endl;
+    cin >> x >> a;
+    try {
+        cout << ln(x, a);
+    } 
+    catch(const char* str) {
+        cout << str << endl;
+    }
+    return 0;
+}
